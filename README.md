@@ -1,5 +1,5 @@
 # auto-aws (Otto for short)
-This repository contains CDK code to manage and automatically update our AWS infrastructure.
+This repository contains CDK code to manage and automatically update Mission Focus AWS infrastructure.
 
 ## Update Instructions
 
