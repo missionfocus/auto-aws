@@ -1,14 +1,4 @@
 
-   
-# VSCode extension
-
-# Store launch config in repo but not settings
-.vscode/settings.json
-/.favorites.json
-
-# TypeScript incremental build states
-*.tsbuildinfo
-
 # Local state files & OS specifics
 .DS_Store
 node_modules/
@@ -74,3 +64,45 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+
+pids
+logs
+results
+tmp
+
+# Build
+public/css/main.css
+
+# Coverage reports
+coverage
+
+# API keys and secrets
+.env
+
+# Dependency directory
+node_modules
+bower_components
+
+# Editors
+.idea
+*.iml
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore built ts files
+dist/**/*
+
+# ignore yarn.lock
+yarn.lock
