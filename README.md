@@ -1,4 +1,4 @@
-# auto-aws
+# auto-aws (Otto for short)
 This repository contains CDK code to manage and automatically update our AWS infrastructure.
 
 Named after the Baseball hall of Famer [Otto Vogel](https://en.wikipedia.org/wiki/Otto_Vogel), whom, although he played for Chicago, went to the univeristy of Illinois, and retired to live in Iowa City, where he achieved his greatest success (above the hall of fame) as coach of the [University of Iowa Hawkeye](https://en.wikipedia.org/wiki/Iowa_Hawkeyes_baseball) baseball team.
