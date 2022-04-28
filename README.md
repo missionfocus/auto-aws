@@ -9,7 +9,7 @@ This repository contains CDK code to manage and automatically update Mission Foc
 
 ### etc.
 
-#### And such and such
+###### And such and such
 
 ---
 # Named after...
