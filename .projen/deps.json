@@ -6,7 +6,7 @@
     },
     {
       "name": "@types/node",
-      "version": "^12",
+      "version": "^14",
       "type": "build"
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "name": "aws-cdk",
-      "version": "^2.1.0",
+      "version": "^2.22.0",
       "type": "build"
     },
     {
@@ -60,11 +60,6 @@
       "type": "build"
     },
     {
-      "name": "npm-check-updates",
-      "version": "^12",
-      "type": "build"
-    },
-    {
       "name": "projen",
       "type": "build"
     },
@@ -83,8 +78,12 @@
       "type": "build"
     },
     {
+      "name": "aws-cdk-github-oidc",
+      "type": "runtime"
+    },
+    {
       "name": "aws-cdk-lib",
-      "version": "^2.1.0",
+      "version": "^2.22.0",
       "type": "runtime"
     },
     {
