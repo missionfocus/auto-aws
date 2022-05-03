@@ -40,7 +40,7 @@ deploy.addJob('deploy', {
     },
   }, {
     name: 'Who am I?',
-    run: 'aws sts get-caller-identity',
+    run: 'aws sts get-caller-identity\naws s3 ls',
   }],
 });
 

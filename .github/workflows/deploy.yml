@@ -21,4 +21,6 @@ jobs:
           role-session-name: GitHubAction
           aws-region: us-east-1
       - name: Who am I?
-        run: aws sts get-caller-identity
+        run: |-
+          aws sts get-caller-identity
+          aws s3 ls
