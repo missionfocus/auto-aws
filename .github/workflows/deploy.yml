@@ -19,8 +19,10 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::292004443359:role/GitHubAdmin
           role-session-name: GitHubAction
-          aws-region: us-east-1
-      - name: Who am I?
+          aws-region: eu-central-1
+      - name: Prepare
         run: |-
-          aws sts get-caller-identity
-          aws s3 ls
+          yarn install --frozen-lockfile
+          npx cdk synth -q
+      - name: CDK Diff
+        run: npx cdk diff

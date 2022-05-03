@@ -36,11 +36,14 @@ deploy.addJob('deploy', {
     with: {
       'role-to-assume': 'arn:aws:iam::292004443359:role/GitHubAdmin',
       'role-session-name': 'GitHubAction',
-      'aws-region': 'us-east-1',
+      'aws-region': 'eu-central-1',
     },
   }, {
-    name: 'Who am I?',
-    run: 'aws sts get-caller-identity\naws s3 ls',
+    name: 'Prepare',
+    run: 'yarn install --frozen-lockfile\nnpx cdk synth -q',
+  }, {
+    name: 'CDK Diff',
+    run: 'npx cdk diff',
   }],
 });
 

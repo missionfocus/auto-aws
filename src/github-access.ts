@@ -1,5 +1,5 @@
 import { GithubActionsIdentityProvider, GithubActionsRole } from 'aws-cdk-github-oidc';
-import { Duration, Stack, StackProps, aws_iam as iam } from 'aws-cdk-lib';
+import { Duration, Stack, StackProps, aws_iam as iam, CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 
@@ -20,8 +20,12 @@ export class GitHubAccessStack extends Stack {
       roleName: 'GitHubAdmin',
       description: 'This role deploys to AWS',
       maxSessionDuration: Duration.hours(2),
+      managedPolicies: [
+        iam.ManagedPolicy.fromAwsManagedPolicyName('AdministratorAccess'),
+      ],
     });
-    deployRole.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AdministratorAccess'));
+
+    new CfnOutput(this, 'GitHubAdminRoleArn', { value: deployRole.roleArn });
 
   }
 }
