@@ -1,0 +1,2 @@
+export const SSO_INSTANCE_ARN = '';
+export const ORG_PRINCIPAL_ACCOUNT = '123456789012';

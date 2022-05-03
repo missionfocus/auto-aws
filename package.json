@@ -44,6 +44,7 @@
   "dependencies": {
     "aws-cdk-github-oidc": "^2.2.1",
     "aws-cdk-lib": "^2.22.0",
+    "cdk-iam-floyd": "^0.364.0",
     "constructs": "^10.0.5"
   },
   "license": "Apache-2.0",

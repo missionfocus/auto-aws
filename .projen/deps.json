@@ -87,6 +87,10 @@
       "type": "runtime"
     },
     {
+      "name": "cdk-iam-floyd",
+      "type": "runtime"
+    },
+    {
       "name": "constructs",
       "version": "^10.0.5",
       "type": "runtime"

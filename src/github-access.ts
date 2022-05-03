@@ -2,9 +2,8 @@ import { GithubActionsIdentityProvider, GithubActionsRole } from 'aws-cdk-github
 import { Duration, Stack, StackProps, aws_iam as iam, CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-
 export interface GitHubAccessStackProps extends StackProps {
-
+  //
 }
 
 export class GitHubAccessStack extends Stack {
@@ -26,6 +25,5 @@ export class GitHubAccessStack extends Stack {
     });
 
     new CfnOutput(this, 'GitHubAdminRoleArn', { value: deployRole.roleArn });
-
   }
 }

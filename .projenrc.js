@@ -14,8 +14,8 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   depsUpgrade: false,
   deps: [
     'aws-cdk-github-oidc',
+    'cdk-iam-floyd',
   ],
-
 });
 
 const deploy = new GithubWorkflow(project.github, 'deploy');
