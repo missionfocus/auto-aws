@@ -34,7 +34,7 @@ deploy.addJob('deploy', {
     name: 'AWS Credentials',
     uses: 'aws-actions/configure-aws-credentials@master',
     with: {
-      'role-to-assume': 'arn:aws:iam::123456789012:role/GitHubAdmin',
+      'role-to-assume': 'arn:aws:iam::292004443359:role/GitHubAdmin',
       'role-session-name': 'GitHubAction',
       'aws-region': 'us-east-1',
     },
