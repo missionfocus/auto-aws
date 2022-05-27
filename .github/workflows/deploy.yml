@@ -17,7 +17,7 @@ jobs:
       - name: AWS Credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::292004443359:role/GitHubAdmin
+          role-to-assume: arn:aws:iam::259975631390:role/GitHubAdmin
           role-session-name: GitHubAction
           aws-region: eu-central-1
       - name: Prepare
@@ -25,4 +25,4 @@ jobs:
           yarn install --frozen-lockfile
           npx cdk synth -q
       - name: CDK Diff
-        run: npx cdk diff
+        run: npx cdk --app cdk.out diff --all

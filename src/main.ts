@@ -3,7 +3,7 @@ import { BudgetStack } from './budget';
 import { ORG_PRINCIPAL_ACCOUNT } from './contants';
 import { CostReportingStack } from './cur';
 import { GitHubAccessStack } from './github-access';
-import { LogBucketStack } from './log-buckets';
+// import { LogBucketStack } from './log-buckets';
 import { SsoPermissionStack } from './sso-permissions';
 
 const app = new App();
@@ -40,11 +40,11 @@ new BudgetStack(app, 'billing-budgets', {
 // ###############
 // SECURITY
 // ###############
-new LogBucketStack(app, 'log-buckets', {
-  env: {
-    region: 'us-east-1',
-    account: '123456789012', // Log Archive Account
-  },
-});
+// new LogBucketStack(app, 'log-buckets', {
+//   env: {
+//     region: 'us-east-1',
+//     account: '469645472245', // Log Archive Account
+//   },
+// });
 
 app.synth();

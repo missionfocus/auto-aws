@@ -22,17 +22,16 @@ export class AccountPermission extends Construct {
     super(scope, id);
 
     const assignAdminToAdmins = new AddAssociationTask(this, 'AssignAdminToAdmins', {
-      groupId: 'XXXXXX', // AWS_Admins
+      groupId: '90676f8aa8-0945eb9e-3921-499a-9bd1-038e3e88da00', // aws-admins
       permissionSetArn: props.adminPermissionSet.attrPermissionSetArn,
     });
     const assignReadOnlyToAdmins = new AddAssociationTask(this, 'AssignReadOnlyToAdmins', {
-      groupId: 'XXXXXX', // AWS_Admins
+      groupId: '90676f8aa8-0945eb9e-3921-499a-9bd1-038e3e88da00', // aws-admins
       permissionSetArn: props.readOnlyPermissionSet.attrPermissionSetArn,
     });
 
     this.stateMachine = new sfn.StateMachine(this, 'Resource', {
-      definition: assignAdminToAdmins
-        .next(assignReadOnlyToAdmins),
+      definition: assignAdminToAdmins.next(assignReadOnlyToAdmins),
     });
 
     new aws_events.Rule(this, 'AccountCreationRule', {

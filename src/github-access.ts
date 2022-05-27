@@ -14,8 +14,8 @@ export class GitHubAccessStack extends Stack {
 
     const deployRole = new GithubActionsRole(this, 'GitHubAdminRole', {
       provider: provider,
-      owner: 'taimos',
-      repo: 'aws-org-test',
+      owner: 'missionfocus',
+      repo: 'auto-aws',
       roleName: 'GitHubAdmin',
       description: 'This role deploys to AWS',
       maxSessionDuration: Duration.hours(2),

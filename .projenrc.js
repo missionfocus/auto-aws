@@ -2,7 +2,7 @@ const { awscdk } = require('projen');
 const { GithubWorkflow } = require('projen/lib/github');
 const { JobPermission } = require('projen/lib/github/workflows-model');
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: '2.22.0',
+  cdkVersion: '2.25.0',
   defaultReleaseBranch: 'main',
   name: 'auto-aws',
   githubOptions: {
@@ -34,7 +34,7 @@ deploy.addJob('deploy', {
     name: 'AWS Credentials',
     uses: 'aws-actions/configure-aws-credentials@master',
     with: {
-      'role-to-assume': 'arn:aws:iam::292004443359:role/GitHubAdmin',
+      'role-to-assume': 'arn:aws:iam::259975631390:role/GitHubAdmin',
       'role-session-name': 'GitHubAction',
       'aws-region': 'eu-central-1',
     },
@@ -43,7 +43,7 @@ deploy.addJob('deploy', {
     run: 'yarn install --frozen-lockfile\nnpx cdk synth -q',
   }, {
     name: 'CDK Diff',
-    run: 'npx cdk diff',
+    run: 'npx cdk --app cdk.out diff --all',
   }],
 });
 

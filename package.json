@@ -23,12 +23,12 @@
     "projen": "npx projen"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.0",
+    "@types/jest": "^27.5.1",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk": "^2.22.0",
-    "esbuild": "^0.14.38",
+    "aws-cdk": "^2.25.0",
+    "esbuild": "^0.14.40",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -36,15 +36,15 @@
     "jest": "^27",
     "jest-junit": "^13",
     "json-schema": "^0.4.0",
-    "projen": "^0.55.2",
+    "projen": "^0.56.34",
     "ts-jest": "^27",
-    "ts-node": "^9",
-    "typescript": "^4.6.4"
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
   },
   "dependencies": {
     "aws-cdk-github-oidc": "^2.2.1",
-    "aws-cdk-lib": "^2.22.0",
-    "cdk-iam-floyd": "^0.364.0",
+    "aws-cdk-lib": "^2.25.0",
+    "cdk-iam-floyd": "^0.375.0",
     "constructs": "^10.0.5"
   },
   "license": "Apache-2.0",

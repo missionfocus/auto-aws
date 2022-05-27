@@ -6,18 +6,17 @@ export interface AccountInfo {
   readonly name: string;
   readonly email: string;
   readonly budget: number;
-  readonly permissions: { [groupId: string]: PermissionType };
+  readonly permissions: { [groupId: string]: PermissionType[] };
 }
 
 export const ACCOUNTS: AccountInfo[] = [
   {
-    accountId: '123456789012',
-    name: 'testaccount',
+    accountId: '259975631390',
+    name: 'mf-sso',
     budget: 400,
-    email: 'info@taimos.de',
+    email: 'maeick+mf-sso@missionfocus.com',
     permissions: {
-      '1234567': 'Billing',
-      '96543-243': 'ReadOnly',
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'],
     },
   },
 ];

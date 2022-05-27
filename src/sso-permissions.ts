@@ -49,29 +49,31 @@ export class SsoPermissionStack extends Stack {
 
     for (const account of ACCOUNTS) {
       for (const groupId of Object.keys(account.permissions)) {
-        let permSet;
-        switch (account.permissions[groupId]) {
-          case 'Admin':
-            permSet = adminPermissionSet;
-            break;
-          case 'Billing':
-            permSet = billingPermissionSet;
-            break;
-          case 'ReadOnly':
-            permSet = readOnlyPermissionSet;
-            break;
-          default:
-            throw new Error('Invalid permission set type found');
-        }
+        for (const perm of account.permissions[groupId]) {
+          let permSet;
+          switch (perm) {
+            case 'Admin':
+              permSet = adminPermissionSet;
+              break;
+            case 'Billing':
+              permSet = billingPermissionSet;
+              break;
+            case 'ReadOnly':
+              permSet = readOnlyPermissionSet;
+              break;
+            default:
+              throw new Error('Invalid permission set type found');
+          }
 
-        new sso.CfnAssignment(this, `Assignment-${account.accountId}-${groupId}-${permSet.name}`, {
-          instanceArn: SSO_INSTANCE_ARN,
-          permissionSetArn: permSet.attrPermissionSetArn,
-          targetType: 'AWS_ACCOUNT',
-          targetId: account.accountId,
-          principalType: 'GROUP',
-          principalId: groupId,
-        });
+          new sso.CfnAssignment(this, `Assignment-${account.accountId}-${groupId}-${permSet.name}`, {
+            instanceArn: SSO_INSTANCE_ARN,
+            permissionSetArn: permSet.attrPermissionSetArn,
+            targetType: 'AWS_ACCOUNT',
+            targetId: account.accountId,
+            principalType: 'GROUP',
+            principalId: groupId,
+          });
+        }
       }
     }
 
