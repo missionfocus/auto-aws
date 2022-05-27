@@ -44,6 +44,12 @@ deploy.addJob('deploy', {
   }, {
     name: 'CDK Diff',
     run: 'npx cdk --app cdk.out diff --all',
+  }, {
+    name: 'CDK Deploy SSO',
+    run: 'npx cdk --app cdk.out --require-approval never deploy \'sso-*\'',
+  }, {
+    name: 'CDK Deploy Billing',
+    run: 'npx cdk --app cdk.out --require-approval never deploy \'billing-*\'',
   }],
 });
 
