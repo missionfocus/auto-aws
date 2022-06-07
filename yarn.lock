@@ -1257,13 +1257,14 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@taimos/cdk-controltower@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@taimos/cdk-controltower/-/cdk-controltower-0.0.2.tgz#4d71a30686eb5d32d74bc6bb793f3628123890b5"
-  integrity sha512-dlMZ4WnSIi1ww7mV6TeXOSYxDajLaK7QRfuzYnQyFYVUErjSlfkLvUIMt+kwTMw/ffPDoOitKxQnJIVGe/3osQ==
+"@taimos/cdk-controltower@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@taimos/cdk-controltower/-/cdk-controltower-0.0.4.tgz#978b4ba2c41fa0958623a3f930b59476037a261e"
+  integrity sha512-ayMr6zE0CbN3qJPw4b7QuxzsGG4twC4sIK+2Sr+fsZZJzPAGkszLdk37/q4QTotLZaSEWIsthKcNi0KRTBE/Og==
   dependencies:
     "@aws-sdk/client-organizations" "^3.105.0"
     axios "^0.27.2"
+    cdk-iam-floyd "0.376.0"
     esbuild "^0.14.42"
 
 "@tootallnate/once@1":
@@ -1821,10 +1822,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-iam-floyd@^0.375.0:
-  version "0.375.0"
-  resolved "https://registry.yarnpkg.com/cdk-iam-floyd/-/cdk-iam-floyd-0.375.0.tgz#7c021134595ad98ed1b1b06aad30cbdc3fb1cada"
-  integrity sha512-FGu3vxS4WVhRZ7rO+TjFTUnNupBhIC2hUoB2/xJaAjIu6xNknTACECuo7EmLJUNSYOOikPsRcCLSEKPelRHw+A==
+cdk-iam-floyd@0.376.0:
+  version "0.376.0"
+  resolved "https://registry.yarnpkg.com/cdk-iam-floyd/-/cdk-iam-floyd-0.376.0.tgz#e9c1291a0894692e4ee904e6367ee5006bf1fcf0"
+  integrity sha512-zg962mqNuSbMjGJIW2ol/ayGjqBM3+q+y8ici7/0gi99PVug5g5V/K5OQpE0t2VSU0x8wovaonEVGWCCmmbLKw==
   dependencies:
     "@udondan/common-substrings" "^3.0.2"
     regex-parser "^2.2.11"

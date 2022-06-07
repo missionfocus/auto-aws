@@ -1,7 +1,6 @@
-import { BudgetStack, SsoPermissionStack } from '@taimos/cdk-controltower';
+import { BudgetStack, CostReportingStack, SsoPermissionStack } from '@taimos/cdk-controltower';
 import { App } from 'aws-cdk-lib';
 import { AccountName, ACCOUNTS } from './aws-accounts';
-import { CostReportingStack } from './cur';
 import { GitHubAccessStack } from './github-access';
 
 const app = new App();
@@ -44,6 +43,8 @@ new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
 // ###############
 new CostReportingStack(app, 'billing-report', {
   env: orgPrincipalEnv,
+  costReportBucketName: 'missionfocus-billing',
+  costReportName: 'missionfocus-cur',
 });
 new BudgetStack<AccountName>(app, 'billing-budgets', {
   env: orgPrincipalEnv,

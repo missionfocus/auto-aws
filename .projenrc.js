@@ -14,7 +14,6 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   depsUpgrade: false,
   deps: [
     'aws-cdk-github-oidc',
-    'cdk-iam-floyd',
     '@taimos/cdk-controltower',
   ],
 });
