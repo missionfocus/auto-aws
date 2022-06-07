@@ -15,6 +15,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   deps: [
     'aws-cdk-github-oidc',
     'cdk-iam-floyd',
+    '@taimos/cdk-controltower',
   ],
 });
 
@@ -39,8 +40,11 @@ deploy.addJob('deploy', {
       'aws-region': 'eu-central-1',
     },
   }, {
-    name: 'Prepare',
-    run: 'yarn install --frozen-lockfile\nnpx cdk synth -q',
+    name: 'Install packages',
+    run: 'yarn install --frozen-lockfile',
+  }, {
+    name: 'CDK Synth',
+    run: 'npx cdk synth -q',
   }, {
     name: 'CDK Diff',
     run: 'npx cdk --app cdk.out diff --all',
@@ -52,5 +56,7 @@ deploy.addJob('deploy', {
     run: 'npx cdk --app cdk.out --require-approval never deploy \'billing-*\'',
   }],
 });
+
+project.addTask('fetch-accounts', { exec: 'fetch-accounts' });
 
 project.synth();

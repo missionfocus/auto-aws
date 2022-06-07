@@ -121,6 +121,14 @@
         }
       ]
     },
+    "fetch-accounts": {
+      "name": "fetch-accounts",
+      "steps": [
+        {
+          "exec": "fetch-accounts"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"

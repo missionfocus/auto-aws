@@ -20,10 +20,10 @@ jobs:
           role-to-assume: arn:aws:iam::259975631390:role/GitHubAdmin
           role-session-name: GitHubAction
           aws-region: eu-central-1
-      - name: Prepare
-        run: |-
-          yarn install --frozen-lockfile
-          npx cdk synth -q
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+      - name: CDK Synth
+        run: npx cdk synth -q
       - name: CDK Diff
         run: npx cdk --app cdk.out diff --all
       - name: CDK Deploy SSO

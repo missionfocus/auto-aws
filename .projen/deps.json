@@ -77,6 +77,10 @@
       "type": "build"
     },
     {
+      "name": "@taimos/cdk-controltower",
+      "type": "runtime"
+    },
+    {
       "name": "aws-cdk-github-oidc",
       "type": "runtime"
     },

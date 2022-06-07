@@ -1,15 +1,13 @@
+import { BudgetStack, SsoPermissionStack } from '@taimos/cdk-controltower';
 import { App } from 'aws-cdk-lib';
-import { BudgetStack } from './budget';
-import { ORG_PRINCIPAL_ACCOUNT } from './contants';
+import { AccountName, ACCOUNTS } from './aws-accounts';
 import { CostReportingStack } from './cur';
 import { GitHubAccessStack } from './github-access';
-// import { LogBucketStack } from './log-buckets';
-import { SsoPermissionStack } from './sso-permissions';
 
 const app = new App();
 
 const orgPrincipalEnv = {
-  account: ORG_PRINCIPAL_ACCOUNT,
+  account: ACCOUNTS['mf-sso'].Id,
   region: 'us-east-1',
 };
 
@@ -23,8 +21,22 @@ new GitHubAccessStack(app, 'GitHubAccess', {
 // ###############
 // SSO
 // ###############
-new SsoPermissionStack(app, 'sso-permissions', {
+new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
   env: orgPrincipalEnv,
+  accounts: ACCOUNTS,
+  groupPermissions: {
+    'mf-sso': {
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'],
+    },
+  },
+  ssoInstanceArn: 'arn:aws:sso:::instance/ssoins-722379e539817c1c',
+  defaultAssignmentsForNewAccount: [{
+    groupId: '90676f8aa8-0945eb9e-3921-499a-9bd1-038e3e88da00', // aws-admins
+    permissionSetName: 'Admin',
+  }, {
+    groupId: '90676f8aa8-0945eb9e-3921-499a-9bd1-038e3e88da00', // aws-admins
+    permissionSetName: 'ReadOnly',
+  }],
 });
 
 // ###############
@@ -33,8 +45,12 @@ new SsoPermissionStack(app, 'sso-permissions', {
 new CostReportingStack(app, 'billing-report', {
   env: orgPrincipalEnv,
 });
-new BudgetStack(app, 'billing-budgets', {
+new BudgetStack<AccountName>(app, 'billing-budgets', {
   env: orgPrincipalEnv,
+  accounts: ACCOUNTS,
+  budgets: {
+    'mf-sso': 400,
+  },
 });
 
 // ###############
@@ -43,8 +59,9 @@ new BudgetStack(app, 'billing-budgets', {
 // new LogBucketStack(app, 'log-buckets', {
 //   env: {
 //     region: 'us-east-1',
-//     account: '469645472245', // Log Archive Account
+//     account: ACCOUNTS['Log Archive'].Id,
 //   },
+//   orgAccountId: ACCOUNTS['mf-sso'].Id,
 // });
 
 app.synth();

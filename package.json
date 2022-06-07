@@ -11,6 +11,7 @@
     "diff": "npx projen diff",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "fetch-accounts": "npx projen fetch-accounts",
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
@@ -42,6 +43,7 @@
     "typescript": "^4.7.2"
   },
   "dependencies": {
+    "@taimos/cdk-controltower": "^0.0.2",
     "aws-cdk-github-oidc": "^2.2.1",
     "aws-cdk-lib": "^2.25.0",
     "cdk-iam-floyd": "^0.375.0",
