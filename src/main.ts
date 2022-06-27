@@ -30,6 +30,33 @@ new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
     'Mission Focus': {
       '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
     },
+    'Institute for Modern Inteligence': {
+      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+    },
+        'MF Sandbox': {
+      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+    },
+    'Mission Focus S3': {
+      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+    },
+    'MF Office IT': {
+      '90676f8aa8-406545af-4bee-4687-98f8-206de9e3f4ce': ['Admin', 'ReadOnly'], //AWS Admins
+    },
+    'Semiota-sandbox': {
+      '90676f8aa8-406545af-4bee-4687-98f8-206de9e3f4ce': ['Admin', 'ReadOnly'], //AWS Admins
+    },
+    'Semiota-Production': {
+      '90676f8aa8-406545af-4bee-4687-98f8-206de9e3f4ce': ['Admin', 'ReadOnly'], //AWS Admins
+    },
+    'edc': {
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+    },
+    'edc-sandbox': {
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+    },
+    'Eick': {
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+    },
   },
   ssoInstanceArn: 'arn:aws:sso:::instance/ssoins-722379e539817c1c',
   defaultAssignmentsForNewAccount: [{
