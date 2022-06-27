@@ -25,15 +25,18 @@ new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
   accounts: ACCOUNTS,
   groupPermissions: {
     'mf-sso': {
-      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'],
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+    }, // Keep adding accounts here
+    'Mission Focus': {
+      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
     },
   },
   ssoInstanceArn: 'arn:aws:sso:::instance/ssoins-722379e539817c1c',
   defaultAssignmentsForNewAccount: [{
-    groupId: '90676f8aa8-0945eb9e-3921-499a-9bd1-038e3e88da00', // aws-admins
+    groupId: '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283', // AWS Super Admins
     permissionSetName: 'Admin',
   }, {
-    groupId: '90676f8aa8-0945eb9e-3921-499a-9bd1-038e3e88da00', // aws-admins
+    groupId: '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283', // AWS Super Admins
     permissionSetName: 'ReadOnly',
   }],
 });
@@ -50,7 +53,9 @@ new BudgetStack<AccountName>(app, 'billing-budgets', {
   env: orgPrincipalEnv,
   accounts: ACCOUNTS,
   budgets: {
+    // Account name: Budget in USD
     'mf-sso': 400,
+    'Mission Focus': 5000,
   },
 });
 
