@@ -2,7 +2,7 @@ const { awscdk } = require('projen');
 const { GithubWorkflow } = require('projen/lib/github');
 const { JobPermission } = require('projen/lib/github/workflows-model');
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: '2.25.0',
+  cdkVersion: '2.50.0',
   defaultReleaseBranch: 'main',
   name: 'auto-aws',
   githubOptions: {
@@ -58,6 +58,10 @@ deploy.addJob('deploy', {
   }],
 });
 
-project.addTask('fetch-accounts', { exec: 'fetch-accounts' });
+const fetchAccounts = project.addTask('fetch-accounts', { exec: 'fetch-accounts' });
+const fetchSsoConfig = project.addTask('fetch-sso-config', { exec: 'fetch-sso-config' });
+const fetch = project.addTask('fetch');
+fetch.spawn(fetchAccounts);
+fetch.spawn(fetchSsoConfig);
 
 project.synth();

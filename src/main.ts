@@ -1,6 +1,7 @@
 import { BudgetStack, CostReportingStack, SsoPermissionStack } from '@taimos/cdk-controltower';
 import { App } from 'aws-cdk-lib';
 import { AccountName, ACCOUNTS } from './aws-accounts';
+import { GroupName, SSO_CONFIG } from './aws-sso-config';
 import { GitHubAccessStack } from './github-access';
 
 const app = new App();
@@ -20,50 +21,50 @@ new GitHubAccessStack(app, 'GitHubAccess', {
 // ###############
 // SSO
 // ###############
-new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
+new SsoPermissionStack<AccountName, GroupName>(app, 'sso-permissions', {
   env: orgPrincipalEnv,
   accounts: ACCOUNTS,
   groupPermissions: {
     'mf-sso': {
-      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+      'AWS Super Admins': ['Admin', 'ReadOnly'],
     }, // Keep adding accounts here
     'Mission Focus': {
-      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+      'AWS Engineers': ['Admin', 'ReadOnly'],
     },
     'Institute for Modern Inteligence': {
-      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+      'AWS Engineers': ['Admin', 'ReadOnly'],
     },
-        'MF Sandbox': {
-      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+    'MF Sandbox': {
+      'AWS Engineers': ['Admin', 'ReadOnly'],
     },
     'Mission Focus S3': {
-      '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
+      'AWS Engineers': ['Admin', 'ReadOnly'],
     },
     'MF Office IT': {
-      '90676f8aa8-406545af-4bee-4687-98f8-206de9e3f4ce': ['Admin', 'ReadOnly'], //AWS Admins
+      'AWS Admins': ['Admin', 'ReadOnly'],
     },
     'Semiota-sandbox': {
-      '90676f8aa8-406545af-4bee-4687-98f8-206de9e3f4ce': ['Admin', 'ReadOnly'], //AWS Admins
+      'AWS Admins': ['Admin', 'ReadOnly'],
     },
     'Semiota-Production': {
-      '90676f8aa8-406545af-4bee-4687-98f8-206de9e3f4ce': ['Admin', 'ReadOnly'], //AWS Admins
+      'AWS Admins': ['Admin', 'ReadOnly'],
     },
     'edc': {
-      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+      'AWS Super Admins': ['Admin', 'ReadOnly'],
     },
     'edc-sandbox': {
-      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+      'AWS Super Admins': ['Admin', 'ReadOnly'],
     },
     'Eick': {
-      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+      'AWS Super Admins': ['Admin', 'ReadOnly'],
     },
   },
-  ssoInstanceArn: 'arn:aws:sso:::instance/ssoins-722379e539817c1c',
+  ssoConfig: SSO_CONFIG,
   defaultAssignmentsForNewAccount: [{
-    groupId: '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283', // AWS Super Admins
+    groupName: 'AWS Super Admins',
     permissionSetName: 'Admin',
   }, {
-    groupId: '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283', // AWS Super Admins
+    groupName: 'AWS Super Admins',
     permissionSetName: 'ReadOnly',
   }],
 });
@@ -72,7 +73,7 @@ new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
 // BILLING
 // ###############
 new CostReportingStack(app, 'billing-report', {
-  env: orgPrincipalEnv,
+  orgPrincipalEnv,
   costReportBucketName: 'missionfocus-billing',
   costReportName: 'missionfocus-cur',
 });
