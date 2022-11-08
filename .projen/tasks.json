@@ -121,11 +121,30 @@
         }
       ]
     },
+    "fetch": {
+      "name": "fetch",
+      "steps": [
+        {
+          "spawn": "fetch-accounts"
+        },
+        {
+          "spawn": "fetch-sso-config"
+        }
+      ]
+    },
     "fetch-accounts": {
       "name": "fetch-accounts",
       "steps": [
         {
           "exec": "fetch-accounts"
+        }
+      ]
+    },
+    "fetch-sso-config": {
+      "name": "fetch-sso-config",
+      "steps": [
+        {
+          "exec": "fetch-sso-config"
         }
       ]
     },
@@ -173,15 +192,6 @@
         },
         {
           "spawn": "eslint"
-        }
-      ]
-    },
-    "test:update": {
-      "name": "test:update",
-      "description": "Update jest snapshots",
-      "steps": [
-        {
-          "exec": "jest --updateSnapshot"
         }
       ]
     },
