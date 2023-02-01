@@ -33,7 +33,7 @@ new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
     'Institute for Modern Inteligence': {
       '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
     },
-        'MF Sandbox': {
+    'MF Sandbox': {
       '90676f8aa8-2fa2fe51-8f74-440c-987b-ad2bfe576c3d': ['Admin', 'ReadOnly'], //AWS Engineers
     },
     'Mission Focus S3': {
