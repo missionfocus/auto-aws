@@ -20,6 +20,8 @@ new GitHubAccessStack(app, 'GitHubAccess', {
 // ###############
 // SSO
 // ###############
+
+// Which account, which user-group (in AWS SSO 'groups' and OKTA), which permissions-sets
 new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
   env: orgPrincipalEnv,
   accounts: ACCOUNTS,
@@ -52,7 +54,7 @@ new SsoPermissionStack<AccountName>(app, 'sso-permissions', {
       '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
     },
     'edc-sandbox': {
-      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
+      '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly', 'Billing'], //AWS Super Admins
     },
     'Eick': {
       '90676f8aa8-1ca4896c-398f-4db9-b3b8-44751f8a2283': ['Admin', 'ReadOnly'], //AWS Super Admins
